@@ -134,9 +134,9 @@ export default function About() {
 
             {/* Photo, circle, image blended into bg */}
             <div className="flex items-start justify-center md:justify-end pt-4">
-              <div className="relative w-[260px] h-[260px] md:w-[300px] md:h-[300px] rounded-full ring-4 ring-[#8B1A2C] bg-[#F4EBE0] overflow-hidden">
+              <div className="relative w-[180px] h-[180px] md:w-[210px] md:h-[210px] rounded-full ring-4 ring-[#8B1A2C] bg-[#F4EBE0] overflow-hidden">
                 <Image
-                  src="/photo-bio.png"
+                  src="/photo-bio-new.png"
                   alt="Akanksha Nakati"
                   fill
                   className="object-contain scale-[1.08] mix-blend-multiply"
@@ -145,8 +145,6 @@ export default function About() {
             </div>
           </div>
         </div>
-
-        <BeyondWork />
 
         {/* Story Timeline */}
         <div className="px-8 md:px-14 py-20 pb-32">
@@ -227,6 +225,8 @@ export default function About() {
             </div>
           </div>
         </div>
+
+        <BeyondWork />
 
       </main>
       <Footer />
