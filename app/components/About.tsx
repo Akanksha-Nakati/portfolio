@@ -31,7 +31,7 @@ export default function About() {
               From building intelligent data pipelines to designing predictive
               models, I blend analytics and engineering to transform raw data into
               strategic insights. My work bridges AI innovation and business
-              storytelling — creating systems that not only analyze, but also
+              storytelling, creating systems that not only analyze, but also
               anticipate, optimize, and inspire action.
             </p>
 

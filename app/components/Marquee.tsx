@@ -1,19 +1,35 @@
 const items = [
   "Data Engineering",
   "★",
-  "Python · PySpark · SQL",
+  "Python",
   "★",
-  "Databricks · Snowflake",
+  "PySpark",
   "★",
-  "LangChain · RAG",
+  "SQL",
+  "★",
+  "Databricks",
+  "★",
+  "Snowflake",
+  "★",
+  "LangChain",
+  "★",
+  "RAG",
   "★",
   "Machine Learning",
   "★",
   "Marketing Analytics",
   "★",
-  "Airflow · dbt",
+  "Airflow",
   "★",
-  "Azure · GCP",
+  "dbt",
+  "★",
+  "Azure",
+  "★",
+  "GCP",
+  "★",
+  "Delta Lake",
+  "★",
+  "Tableau",
   "★",
 ];
 
@@ -22,7 +38,12 @@ export default function Marquee() {
 
   return (
     <div className="bg-[#8B1A2C] py-4 overflow-hidden">
-      <div className="flex animate-marquee whitespace-nowrap">
+      <div
+        className="flex whitespace-nowrap"
+        style={{
+          animation: "marquee-scroll 22s linear infinite",
+        }}
+      >
         {doubled.map((item, i) => (
           <span
             key={i}
@@ -32,6 +53,13 @@ export default function Marquee() {
           </span>
         ))}
       </div>
+
+      <style>{`
+        @keyframes marquee-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
     </div>
   );
 }

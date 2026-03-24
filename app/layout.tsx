@@ -26,9 +26,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Akanksha Nakati — Data Engineer & Marketing Analytics",
+  title: "Akanksha Nakati | Data Engineer & Marketing Analytics",
   description:
-    "Portfolio of Akanksha Nakati — AI/Data Engineer with 2+ years of experience in data modeling, analytics, and marketing intelligence.",
+    "Portfolio of Akanksha Nakati | AI/Data Engineer with 2+ years of experience in data modeling, analytics, and marketing intelligence.",
 };
 
 export default function RootLayout({

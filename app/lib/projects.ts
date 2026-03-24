@@ -89,12 +89,12 @@ export const projects: Project[] = [
   },
   {
     slug: "social-media-causality",
-    title: "Social Media Engagement — Causal Analysis",
+    title: "Social Media Engagement, Causal Analysis",
     tag: "Data Science",
     year: "2025",
     shortDesc: "Causal inference on Instagram & LinkedIn to find what actually drives engagement.",
     fullDesc:
-      "A data science project that goes beyond correlation to uncover true causal relationships between content characteristics and engagement metrics across Instagram and LinkedIn. Using advanced causal inference techniques (do-calculus, propensity score matching), this analysis identifies which posting strategies actually drive engagement — not just what's associated with it. Delivers actionable content recommendations grounded in causal evidence.",
+      "A data science project that goes beyond correlation to uncover true causal relationships between content characteristics and engagement metrics across Instagram and LinkedIn. Using advanced causal inference techniques (do-calculus, propensity score matching), this analysis identifies which posting strategies actually drive engagement, not just what's associated with it. Delivers actionable content recommendations grounded in causal evidence.",
     stack: ["Python", "Causal Inference", "Pandas", "Statsmodels", "Data Visualization"],
     github: "https://github.com/Akanksha-Nakati/Social-Media-Engagement-Analysis-using-Causality",
     live: null,

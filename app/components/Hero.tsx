@@ -34,11 +34,10 @@ export default function Hero() {
           <div className="absolute right-0 bottom-2 md:bottom-4">
             <div className="relative w-[160px] h-[200px] md:w-[220px] md:h-[270px] rounded-2xl overflow-hidden border-4 border-[#F4EBE0] shadow-2xl rotate-2">
               <Image
-                src="https://framerusercontent.com/images/6N1kzveeLopAiZvDLCaDvsjtnew.jpeg"
-                alt="Akanksha Nakati"
-                fill
-                className="object-cover"
-                unoptimized
+              src="/photo-headshot.png"
+              alt="Akanksha Nakati"
+              fill
+              className="object-cover object-top"
               />
               {/* Burgundy overlay badge */}
               <div className="absolute bottom-3 left-3 bg-[#8B1A2C] text-[#F4EBE0] text-[10px] font-semibold uppercase tracking-widest px-2.5 py-1.5 rounded-full">

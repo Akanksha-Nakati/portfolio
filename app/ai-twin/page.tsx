@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 
 const SUGGESTIONS = [
   "What's your stack?",
@@ -61,8 +62,14 @@ export default function AiTwinPage() {
         <div className="flex flex-col gap-6">
           {/* Avatar + name */}
           <div className="flex flex-col items-center gap-3 pb-6 border-b border-[#D4C0B0]">
-            <div className="w-16 h-16 rounded-full bg-[#8B1A2C] flex items-center justify-center font-[var(--font-display)] italic text-xl text-[#F4EBE0]">
-              AN
+            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#8B1A2C] shrink-0 relative bg-[#e8e6f0] mx-auto">
+              <Image
+                src="/photo-avatar.png"
+                alt="Akanksha Nakati"
+                fill
+                className="object-cover object-center scale-[1.45] translate-x-[5px]"
+                quality={100}
+              />
             </div>
             <div className="text-center">
               <p className="font-[var(--font-playfair)] font-semibold text-[#1C0D08]">Akanksha Nakati</p>
@@ -141,8 +148,8 @@ export default function AiTwinPage() {
           {messages.map((m, i) => (
             <div key={i} className={`flex items-end gap-3 ${m.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
               {m.role === "ai" && (
-                <div className="w-8 h-8 rounded-full bg-[#8B1A2C] flex items-center justify-center font-[var(--font-display)] italic text-xs text-[#F4EBE0] shrink-0">
-                  AN
+                <div className="w-8 h-8 rounded-full overflow-hidden border border-[#8B1A2C]/40 shrink-0 relative bg-[#e8e6f0]">
+                  <Image src="/photo-avatar.png" alt="AN" fill className="object-cover object-center scale-[1.45] translate-x-[5px]" />
                 </div>
               )}
               {m.role === "user" && (
@@ -164,8 +171,8 @@ export default function AiTwinPage() {
 
           {loading && (
             <div className="flex items-end gap-3">
-              <div className="w-8 h-8 rounded-full bg-[#8B1A2C] flex items-center justify-center font-[var(--font-display)] italic text-xs text-[#F4EBE0] shrink-0">
-                AN
+              <div className="w-8 h-8 rounded-full overflow-hidden border border-[#8B1A2C]/40 shrink-0 relative bg-[#e8e6f0]">
+                <Image src="/photo-avatar.png" alt="AN" fill className="object-cover object-center scale-[1.45] translate-x-[5px]" />
               </div>
               <div className="bg-[#2C1510] border border-[#F4EBE0]/8 px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1 items-center">
                 <span className="w-1.5 h-1.5 bg-[#C4918C] rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />

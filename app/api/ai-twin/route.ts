@@ -8,10 +8,10 @@ const knowledge = {
   education: { degree: "MS Information Systems", school: "Northeastern University", year: "2025" },
   skills: ["Python", "PySpark", "SQL", "Databricks", "Snowflake", "Airflow", "LangChain", "RAG", "Azure", "dbt"],
   projects: [
-    "AI Coffee Recommendation Engine — a full medallion pipeline on Databricks with ChromaDB vector search and a Streamlit UI.",
+    "AI Coffee Recommendation Engine, a full medallion pipeline on Databricks with ChromaDB vector search and a Streamlit UI.",
     "Agentic AI Trading Assistant using LangChain + RAG.",
     "Data warehouse processing 2M+ records/day on Snowflake + GCP.",
-    "IMDB Analysis Pipeline — end-to-end ETL on cloud.",
+    "IMDB Analysis Pipeline, end-to-end ETL on cloud.",
     "Product Design & Marketing Optimization for Rare Beauty using Tableau dashboards.",
   ],
   links: {
@@ -29,7 +29,7 @@ function generateResponse(message: string): string {
   }
 
   if (msg.includes("open") || msg.includes("role") || msg.includes("job") || msg.includes("hire") || msg.includes("available")) {
-    return "Absolutely! I'm actively looking for data engineering and AI-adjacent roles — ideally fintech or SaaS. I need H1B sponsorship and I'm targeting $100K+. Would love to connect!";
+    return "Absolutely! I'm actively looking for data engineering and AI-adjacent roles, ideally fintech or SaaS. I need H1B sponsorship and I'm targeting $100K+. Would love to connect!";
   }
 
   if (msg.includes("stack") || msg.includes("skill") || msg.includes("tech") || msg.includes("tool")) {
@@ -37,7 +37,7 @@ function generateResponse(message: string): string {
   }
 
   if (msg.includes("unique") || msg.includes("different") || msg.includes("special") || msg.includes("stand out")) {
-    return "What makes me unique is my blend of deep data engineering (pipelines, warehouses, orchestration) with marketing analytics and AI. I don't just move data — I turn it into decisions.";
+    return "What makes me unique is my blend of deep data engineering (pipelines, warehouses, orchestration) with marketing analytics and AI. I don't just move data, I turn it into decisions.";
   }
 
   if (msg.includes("education") || msg.includes("school") || msg.includes("degree") || msg.includes("study")) {
@@ -49,7 +49,7 @@ function generateResponse(message: string): string {
   }
 
   if (msg.includes("experience") || msg.includes("background") || msg.includes("career")) {
-    return "I have 2+ years of experience across data engineering, marketing analytics, and ML. I've worked at Lid Vizion, Medius AI, and Go Dutch — spanning fintech, AI, and growth analytics.";
+    return "I have 2+ years of experience across data engineering, marketing analytics, and ML. I've worked at Lid Vizion, Medius AI, and Go Dutch, spanning fintech, AI, and growth analytics.";
   }
 
   if (msg.includes("location") || msg.includes("where") || msg.includes("boston") || msg.includes("relocate")) {
@@ -60,7 +60,7 @@ function generateResponse(message: string): string {
     return `Hey! I'm Akanksha's AI Twin. I know everything about her work, projects, and what she's looking for. Ask me about her skills, projects, experience, or job search!`;
   }
 
-  return "That's a great question! Akanksha is a Data Engineer and AI practitioner based in Boston, with 2+ years of experience building data pipelines, marketing analytics systems, and AI-powered tools. What would you like to know specifically — her projects, skills, or availability?";
+  return "That's a great question! Akanksha is a Data Engineer and AI practitioner based in Boston, with 2+ years of experience building data pipelines, marketing analytics systems, and AI-powered tools. What would you like to know specifically, her projects, skills, or availability?";
 }
 
 export async function POST(req: NextRequest) {
