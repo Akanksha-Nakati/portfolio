@@ -25,6 +25,7 @@ const inter = Inter({
   display: "swap",
 });
 
+
 export const metadata: Metadata = {
   title: "Akanksha Nakati | Data Engineer & Marketing Analytics",
   description:

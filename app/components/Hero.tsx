@@ -18,7 +18,6 @@ export default function Hero() {
       <Sparkle className="bottom-36 right-[14%] text-white/25 text-3xl" />
       <Sparkle className="top-96 left-[70%] text-white/15 text-5xl" />
 
-
       {/* Main content */}
       <div className="flex-1 flex flex-col items-center justify-center relative px-4">
         <div className="relative w-full text-center select-none flex flex-col items-center gap-5">
@@ -52,7 +51,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom social links bar */}
-      <div className="flex items-center justify-center md:justify-between flex-wrap gap-4 px-8 md:px-14 py-5 border-t border-white/15">
+      <div className="flex items-center justify-center flex-wrap gap-4 px-8 md:px-14 py-5 border-t border-white/15">
         <div className="flex items-center gap-6 md:gap-10 flex-wrap justify-center">
 
           <a href="https://www.linkedin.com/in/akanksha-nakati/" target="_blank" rel="noopener noreferrer"
@@ -96,7 +95,6 @@ export default function Hero() {
             <span className="text-xs font-medium uppercase tracking-widest hidden sm:block">Boston, MA</span>
           </span>
         </div>
-
       </div>
     </section>
   );
