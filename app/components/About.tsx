@@ -4,66 +4,184 @@ const skills = ["Python", "PySpark", "SQL", "Databricks", "Snowflake", "Airflow"
 
 export default function About() {
   return (
-    <section className="bg-[#F0ECFF] py-24 px-8 md:px-14">
-      <div className="w-full max-w-[1400px] mx-auto flex flex-col gap-20">
-        {/* Two column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-          {/* Left: heading */}
-          <div className="flex flex-col gap-6">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#6B5CE7]">About Me</span>
-            <h2 className="font-[var(--font-display)] text-[clamp(44px,6vw,80px)] leading-[0.92] text-[#1A1040] tracking-tight">
-              I build<br />
-              <span className="italic text-[#6B5CE7]">data</span><br />
-              systems<br />
-              that think.
-            </h2>
-            <Link
-              href="/about"
-              className="self-start mt-2 text-sm font-semibold uppercase tracking-widest px-6 py-3 border border-[#6B5CE7] text-[#6B5CE7] rounded-full hover:bg-[#6B5CE7] hover:text-white transition-all"
-            >
-              Full Story →
-            </Link>
+    <section className="bg-white py-24 px-8 md:px-14 relative overflow-hidden">
+      <span className="absolute top-10 right-16 text-[#7C6FCD]/20 text-3xl select-none pointer-events-none font-bold">✦</span>
+      <span className="absolute bottom-16 left-[8%] text-[#7C6FCD]/15 text-4xl select-none pointer-events-none font-bold">✦</span>
+
+      <div className="w-full max-w-[1400px] mx-auto flex flex-col gap-16">
+        <div className="flex items-center gap-4">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7C6FCD]">About Me</span>
+          <div className="flex-1 h-px bg-[#DDD8F5]" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Photo with heart frame */}
+          <div className="flex justify-center md:justify-start">
+            <div className="relative flex items-center justify-center" style={{ width: 360, height: 320 }}>
+
+              {/* "Introduction" pill — top left */}
+              <div className="absolute top-4 left-0 bg-white border border-[#DDD8F5] rounded-full px-3 py-1.5 shadow-md z-20 rotate-[-8deg]">
+                <span className="font-[var(--font-playfair)] italic text-[11px] text-[#7C6FCD] whitespace-nowrap">Introduction ✦</span>
+              </div>
+
+              {/* "About me" pill — top right */}
+              <div className="absolute top-4 right-0 bg-[#7C6FCD] rounded-full px-3 py-1.5 shadow-md z-20 rotate-[7deg]">
+                <span className="font-[var(--font-playfair)] italic text-[11px] text-white whitespace-nowrap">About me</span>
+              </div>
+
+              {/* Dot decorations */}
+              <span className="absolute top-14 left-6 w-2.5 h-2.5 rounded-full bg-[#7C6FCD] z-20" />
+              <span className="absolute top-20 left-2 w-1.5 h-1.5 rounded-full bg-[#B0A8E8] z-20" />
+              <span className="absolute top-14 right-6 w-2 h-2 rounded-full bg-[#B0A8E8] z-20" />
+              <span className="absolute top-20 right-2 w-1.5 h-1.5 rounded-full bg-[#7C6FCD] z-20" />
+              <span className="absolute bottom-14 left-4 w-2 h-2 rounded-full bg-[#B0A8E8] z-20" />
+              <span className="absolute bottom-14 right-4 w-2.5 h-2.5 rounded-full bg-[#7C6FCD] z-20" />
+
+              {/* Heart SVG: wide, curvy, hand-drawn, tilted */}
+              <svg
+                viewBox="0 0 140 100"
+                xmlns="http://www.w3.org/2000/svg"
+                className="absolute"
+                style={{ width: 320, height: 230, top: 50, transform: 'rotate(-10deg)' }}
+              >
+                <defs>
+                  {/* Wide heart: width > height, big round bumps */}
+                  <clipPath id="heart-clip">
+                    <path d="
+                      M 70,34
+                      C 68,16 60,2 44,2
+                      C 24,2 6,18 4,34
+                      C 2,46 6,58 15,68
+                      C 26,80 44,88 60,94
+                      C 64,96 67,97 70,98
+                      C 73,97 76,96 80,94
+                      C 96,88 114,80 125,68
+                      C 134,58 138,46 136,34
+                      C 134,18 116,2 96,2
+                      C 80,2 72,16 70,34 Z
+                    " />
+                  </clipPath>
+                </defs>
+
+                {/* Background fill for uncovered heart areas */}
+                <path
+                  d="
+                    M 70,34
+                    C 68,16 60,2 44,2
+                    C 24,2 6,18 4,34
+                    C 2,46 6,58 15,68
+                    C 26,80 44,88 60,94
+                    C 64,96 67,97 70,98
+                    C 73,97 76,96 80,94
+                    C 96,88 114,80 125,68
+                    C 134,58 138,46 136,34
+                    C 134,18 116,2 96,2
+                    C 80,2 72,16 70,34 Z
+                  "
+                  fill="#EDE9FF"
+                />
+
+                {/* Photo — large enough to fill heart, face centered */}
+                <image
+                  href="/photo-about.png"
+                  x="-15" y="15" width="170" height="150"
+                  preserveAspectRatio="xMidYMin slice"
+                  clipPath="url(#heart-clip)"
+                />
+
+                {/* Outer dashed border — sits just outside the clip */}
+                <path
+                  d="
+                    M 70,34
+                    C 68,16 60,2 44,2
+                    C 24,2 6,18 4,34
+                    C 2,46 6,58 15,68
+                    C 26,80 44,88 60,94
+                    C 64,96 67,97 70,98
+                    C 73,97 76,96 80,94
+                    C 96,88 114,80 125,68
+                    C 134,58 138,46 136,34
+                    C 134,18 116,2 96,2
+                    C 80,2 72,16 70,34 Z
+                  "
+                  fill="none"
+                  stroke="#7C6FCD"
+                  strokeWidth="2"
+                  strokeDasharray="5,3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+
+                {/* Outer glow ring */}
+                <path
+                  d="
+                    M 70,36
+                    C 68,17 60,0 43,0
+                    C 22,0 3,17 1,34
+                    C -1,47 4,61 14,71
+                    C 25,83 44,92 61,97
+                    C 65,99 67,100 70,100
+                    C 73,100 75,99 79,97
+                    C 96,92 115,83 126,71
+                    C 136,61 141,47 139,34
+                    C 137,17 118,0 97,0
+                    C 80,0 72,17 70,36 Z
+                  "
+                  fill="none"
+                  stroke="#B0A8E8"
+                  strokeWidth="1"
+                  strokeDasharray="3,5"
+                  strokeLinecap="round"
+                  opacity="0.6"
+                />
+              </svg>
+
+            </div>
           </div>
 
-          {/* Right: bio + skills */}
-          <div className="flex flex-col gap-10 pt-2">
-            <p className="font-[var(--font-playfair)] text-[clamp(17px,1.8vw,22px)] leading-[1.55] text-[#1A1040]/75">
-              From building intelligent data pipelines to designing predictive
-              models, I blend analytics and engineering to transform raw data into
-              strategic insights. My work bridges AI innovation and business
-              storytelling, creating systems that not only analyze, but also
-              anticipate, optimize, and inspire action.
-            </p>
+          {/* Bio */}
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-4">
+              <h2 className="font-[var(--font-display)] text-[clamp(36px,5vw,64px)] leading-[0.92] text-[#2D1B69] tracking-tight">
+                I build<br />
+                <span className="italic text-[#7C6FCD]">data</span> systems<br />
+                that think.
+              </h2>
+              <p className="font-[var(--font-playfair)] text-[clamp(15px,1.6vw,19px)] leading-[1.65] text-[#2D1B69]/60">
+                From intelligent data pipelines to predictive models, I blend
+                analytics and engineering to transform raw data into strategic
+                insights. My work bridges AI innovation and business storytelling,
+                creating systems that not only analyze, but anticipate and inspire action.
+              </p>
+            </div>
 
-            {/* Skills */}
             <div className="flex flex-col gap-3">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#7B72A8]">Skills</span>
+              <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8880B8]">Stack & Tools</span>
               <div className="flex flex-wrap gap-2">
                 {skills.map((s) => (
-                  <span
-                    key={s}
-                    className="text-xs font-medium px-3 py-1.5 rounded-full bg-[#E8E2FF] text-[#4838C9] border border-[#C8C0E8]"
-                  >
+                  <span key={s} className="text-xs font-medium px-3 py-1.5 rounded-full bg-[#EDE9FF] text-[#5A4FB0] border border-[#DDD8F5]">
                     {s}
                   </span>
                 ))}
               </div>
             </div>
+
+            <Link href="/about"
+              className="self-start text-sm font-semibold uppercase tracking-widest px-7 py-3 bg-[#7C6FCD] text-white rounded-full hover:bg-[#5A4FB0] transition-all">
+              Full Story →
+            </Link>
           </div>
         </div>
 
-        {/* Bottom stat row */}
-        <div className="grid grid-cols-3 border-t border-[#C8C0E8] pt-10 gap-4">
+        <div className="grid grid-cols-3 border-t border-[#DDD8F5] pt-10 gap-4">
           {[
             { num: "2+", label: "Years Experience" },
-            { num: "4+", label: "Projects Shipped" },
+            { num: "9+", label: "Projects Shipped" },
             { num: "2M+", label: "Records Processed Daily" },
           ].map((s) => (
             <div key={s.label} className="flex flex-col gap-1">
-              <span className="font-[var(--font-display)] text-[clamp(28px,4vw,52px)] text-[#6B5CE7] leading-none">
-                {s.num}
-              </span>
-              <span className="text-xs font-medium uppercase tracking-widest text-[#7B72A8]">{s.label}</span>
+              <span className="font-[var(--font-display)] text-[clamp(28px,4vw,52px)] text-[#7C6FCD] leading-none">{s.num}</span>
+              <span className="text-xs font-medium uppercase tracking-widest text-[#8880B8]">{s.label}</span>
             </div>
           ))}
         </div>

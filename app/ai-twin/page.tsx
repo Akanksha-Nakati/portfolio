@@ -58,11 +58,11 @@ export default function AiTwinPage() {
       style={{ height: "100vh", paddingTop: "72px" }}
     >
       {/* ── LEFT PANEL ── lavender sidebar */}
-      <aside className="w-full md:w-[300px] shrink-0 bg-[#E8E2FF] border-r border-[#C8C0E8] flex flex-col justify-between p-6 overflow-y-auto">
+      <aside className="w-full md:w-[300px] shrink-0 bg-[#EDE9FF] border-r border-[#DDD8F5] flex flex-col justify-between p-6 overflow-y-auto">
         <div className="flex flex-col gap-6">
           {/* Avatar + name */}
-          <div className="flex flex-col items-center gap-3 pb-6 border-b border-[#C8C0E8]">
-            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#6B5CE7] shrink-0 relative bg-[#e8e6f0] mx-auto">
+          <div className="flex flex-col items-center gap-3 pb-6 border-b border-[#DDD8F5]">
+            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-[#7C6FCD] shrink-0 relative bg-[#e8e6f0] mx-auto">
               <Image
                 src="/photo-avatar.png"
                 alt="Akanksha Nakati"
@@ -72,14 +72,11 @@ export default function AiTwinPage() {
               />
             </div>
             <div className="text-center">
-              <p className="font-[var(--font-playfair)] font-semibold text-[#1A1040]">Akanksha Nakati</p>
-              <p className="text-sm text-[#7B72A8] mt-0.5">Data Engineer · Boston, MA</p>
+              <p className="font-[var(--font-playfair)] font-semibold text-[#2D1B69]">Akanksha Nakati</p>
+              <p className="text-sm text-[#8880B8] mt-0.5">Data Engineer · Boston, MA</p>
             </div>
             <div className="flex gap-2 flex-wrap justify-center">
-              <span className="text-[10px] font-semibold px-3 py-1 rounded-full bg-[#6B5CE7]/10 border border-[#6B5CE7]/30 text-[#4838C9] uppercase tracking-widest">
-                Open to work
-              </span>
-              <span className="text-[10px] font-semibold px-3 py-1 rounded-full bg-[#6B5CE7]/10 border border-[#6B5CE7]/30 text-[#4838C9] uppercase tracking-widest">
+              <span className="text-[10px] font-semibold px-3 py-1 rounded-full bg-[#7C6FCD]/10 border border-[#7C6FCD]/30 text-[#5A4FB0] uppercase tracking-widest">
                 H1B
               </span>
             </div>
@@ -87,24 +84,24 @@ export default function AiTwinPage() {
 
           {/* Current */}
           <div className="flex flex-col gap-1">
-            <p className="text-[10px] font-semibold text-[#7B72A8] uppercase tracking-[0.2em]">Current</p>
-            <p className="text-sm font-medium text-[#1A1040]">Data Engineer</p>
-            <p className="text-sm text-[#7B72A8]">Lid Vizion</p>
+            <p className="text-[10px] font-semibold text-[#8880B8] uppercase tracking-[0.2em]">Current</p>
+            <p className="text-sm font-medium text-[#2D1B69]">Data Engineer</p>
+            <p className="text-sm text-[#8880B8]">Lid Vizion</p>
           </div>
 
           {/* Education */}
           <div className="flex flex-col gap-1">
-            <p className="text-[10px] font-semibold text-[#7B72A8] uppercase tracking-[0.2em]">Education</p>
-            <p className="text-sm font-medium text-[#1A1040]">MS Information Systems</p>
-            <p className="text-sm text-[#7B72A8]">Northeastern, 2025</p>
+            <p className="text-[10px] font-semibold text-[#8880B8] uppercase tracking-[0.2em]">Education</p>
+            <p className="text-sm font-medium text-[#2D1B69]">MS Information Systems</p>
+            <p className="text-sm text-[#8880B8]">Northeastern, 2025</p>
           </div>
 
           {/* Skills */}
           <div className="flex flex-col gap-2">
-            <p className="text-[10px] font-semibold text-[#7B72A8] uppercase tracking-[0.2em]">Skills</p>
+            <p className="text-[10px] font-semibold text-[#8880B8] uppercase tracking-[0.2em]">Skills</p>
             <div className="flex flex-wrap gap-1.5">
               {SKILLS.map((s) => (
-                <span key={s} className="text-xs px-2.5 py-1 rounded-full bg-[#F0ECFF] border border-[#C8C0E8] text-[#4838C9]">
+                <span key={s} className="text-xs px-2.5 py-1 rounded-full bg-white border border-[#DDD8F5] text-[#5A4FB0]">
                   {s}
                 </span>
               ))}
@@ -124,7 +121,7 @@ export default function AiTwinPage() {
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-2.5 text-sm text-center rounded-lg border border-[#C8C0E8] text-[#1A1040]/60 hover:bg-[#6B5CE7] hover:text-white hover:border-[#6B5CE7] transition-all font-medium"
+              className="w-full py-2.5 text-sm text-center rounded-lg border border-[#DDD8F5] text-[#2D1B69]/60 hover:bg-[#7C6FCD] hover:text-white hover:border-[#7C6FCD] transition-all font-medium"
             >
               {l.label}
             </a>
@@ -133,14 +130,14 @@ export default function AiTwinPage() {
       </aside>
 
       {/* ── RIGHT PANEL ── dark chat */}
-      <div className="flex-1 flex flex-col bg-[#1A1040] overflow-hidden">
+      <div className="flex-1 flex flex-col bg-[#2D1B69] overflow-hidden">
         {/* Chat header */}
-        <div className="flex items-center gap-3 px-6 py-4 border-b border-[#F0ECFF]/10 shrink-0">
-          <span className="w-2 h-2 rounded-full bg-[#A89EF0] animate-pulse" />
-          <span className="font-[var(--font-display)] italic text-lg text-[#F0ECFF]">
+        <div className="flex items-center gap-3 px-6 py-4 border-b border-white/10 shrink-0">
+          <span className="w-2 h-2 rounded-full bg-[#B0A8E8] animate-pulse" />
+          <span className="font-[var(--font-display)] italic text-lg text-white">
             Akanksha&apos;s AI Twin
           </span>
-          <span className="text-sm text-[#F0ECFF]/30 ml-1">· Ask me anything</span>
+          <span className="text-sm text-white/30 ml-1">· Ask me anything</span>
         </div>
 
         {/* Messages */}
@@ -148,20 +145,20 @@ export default function AiTwinPage() {
           {messages.map((m, i) => (
             <div key={i} className={`flex items-end gap-3 ${m.role === "user" ? "flex-row-reverse" : "flex-row"}`}>
               {m.role === "ai" && (
-                <div className="w-8 h-8 rounded-full overflow-hidden border border-[#6B5CE7]/40 shrink-0 relative bg-[#e8e6f0]">
+                <div className="w-8 h-8 rounded-full overflow-hidden border border-[#7C6FCD]/40 shrink-0 relative bg-[#e8e6f0]">
                   <Image src="/photo-avatar.png" alt="AN" fill className="object-cover object-center scale-[1.45] translate-x-[5px]" />
                 </div>
               )}
               {m.role === "user" && (
-                <div className="w-8 h-8 rounded-full bg-[#F0ECFF]/10 flex items-center justify-center text-[10px] font-semibold uppercase tracking-widest shrink-0 text-[#F0ECFF]/40">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-semibold uppercase tracking-widest shrink-0 text-white/40">
                   you
                 </div>
               )}
               <div
                 className={`max-w-[75%] px-4 py-3 rounded-2xl text-sm leading-relaxed ${
                   m.role === "ai"
-                    ? "bg-[#2A2060] text-[#F0ECFF] rounded-bl-sm border border-[#F0ECFF]/8"
-                    : "bg-[#6B5CE7] text-white rounded-br-sm"
+                    ? "bg-[#3D2F9E] text-white rounded-bl-sm border border-white/8"
+                    : "bg-[#7C6FCD] text-white rounded-br-sm"
                 }`}
               >
                 {m.text}
@@ -171,13 +168,13 @@ export default function AiTwinPage() {
 
           {loading && (
             <div className="flex items-end gap-3">
-              <div className="w-8 h-8 rounded-full overflow-hidden border border-[#6B5CE7]/40 shrink-0 relative bg-[#e8e6f0]">
+              <div className="w-8 h-8 rounded-full overflow-hidden border border-[#7C6FCD]/40 shrink-0 relative bg-[#e8e6f0]">
                 <Image src="/photo-avatar.png" alt="AN" fill className="object-cover object-center scale-[1.45] translate-x-[5px]" />
               </div>
-              <div className="bg-[#2A2060] border border-[#F0ECFF]/8 px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1 items-center">
-                <span className="w-1.5 h-1.5 bg-[#A89EF0] rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                <span className="w-1.5 h-1.5 bg-[#A89EF0] rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                <span className="w-1.5 h-1.5 bg-[#A89EF0] rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+              <div className="bg-[#3D2F9E] border border-white/8 px-4 py-3 rounded-2xl rounded-bl-sm flex gap-1 items-center">
+                <span className="w-1.5 h-1.5 bg-[#B0A8E8] rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                <span className="w-1.5 h-1.5 bg-[#B0A8E8] rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                <span className="w-1.5 h-1.5 bg-[#B0A8E8] rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
               </div>
             </div>
           )}
@@ -190,7 +187,7 @@ export default function AiTwinPage() {
             <button
               key={s}
               onClick={() => sendMessage(s)}
-              className="text-xs px-3 py-1.5 rounded-full border border-[#F0ECFF]/15 text-[#F0ECFF]/45 hover:border-[#A89EF0] hover:text-[#A89EF0] transition-all"
+              className="text-xs px-3 py-1.5 rounded-full border border-white/15 text-white/45 hover:border-[#A89EF0] hover:text-[#B0A8E8] transition-all"
             >
               {s}
             </button>
@@ -201,19 +198,19 @@ export default function AiTwinPage() {
         <div className="px-6 pb-6 shrink-0">
           <form
             onSubmit={(e) => { e.preventDefault(); sendMessage(input); }}
-            className="flex items-center gap-3 bg-[#2A2060] rounded-xl px-4 py-3 border border-[#F0ECFF]/10 focus-within:border-[#6B5CE7]/60 transition-colors"
+            className="flex items-center gap-3 bg-[#3D2F9E] rounded-xl px-4 py-3 border border-white/10 focus-within:border-[#7C6FCD]/60 transition-colors"
           >
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask me anything about Akanksha..."
-              className="flex-1 bg-transparent text-sm text-[#F0ECFF] placeholder-[#F0ECFF]/25 outline-none"
+              className="flex-1 bg-transparent text-sm text-white placeholder-[#F0ECFF]/25 outline-none"
             />
             <button
               type="submit"
               disabled={!input.trim() || loading}
-              className="w-8 h-8 rounded-lg bg-[#6B5CE7] flex items-center justify-center text-white hover:bg-[#4838C9] disabled:opacity-30 transition-all"
+              className="w-8 h-8 rounded-lg bg-[#7C6FCD] flex items-center justify-center text-white hover:bg-[#5A4FB0] disabled:opacity-30 transition-all"
             >
               →
             </button>
