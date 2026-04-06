@@ -37,96 +37,43 @@ export default function About() {
               <span className="absolute bottom-14 left-4 w-2 h-2 rounded-full bg-[#B0A8E8] z-20" />
               <span className="absolute bottom-14 right-4 w-2.5 h-2.5 rounded-full bg-[#7C6FCD] z-20" />
 
-              {/* Heart SVG: wide, curvy, hand-drawn, tilted */}
+              {/* Circle SVG frame */}
               <svg
-                viewBox="0 0 140 100"
+                viewBox="0 0 140 140"
                 xmlns="http://www.w3.org/2000/svg"
                 className="absolute"
-                style={{ width: 320, height: 230, top: 50, transform: 'rotate(-10deg)' }}
+                style={{ width: 240, height: 240, top: 40 }}
               >
                 <defs>
-                  {/* Wide heart: width > height, big round bumps */}
-                  <clipPath id="heart-clip">
-                    <path d="
-                      M 70,34
-                      C 68,16 60,2 44,2
-                      C 24,2 6,18 4,34
-                      C 2,46 6,58 15,68
-                      C 26,80 44,88 60,94
-                      C 64,96 67,97 70,98
-                      C 73,97 76,96 80,94
-                      C 96,88 114,80 125,68
-                      C 134,58 138,46 136,34
-                      C 134,18 116,2 96,2
-                      C 80,2 72,16 70,34 Z
-                    " />
+                  <clipPath id="circle-clip">
+                    <circle cx="70" cy="70" r="65" />
                   </clipPath>
                 </defs>
 
-                {/* Background fill for uncovered heart areas */}
-                <path
-                  d="
-                    M 70,34
-                    C 68,16 60,2 44,2
-                    C 24,2 6,18 4,34
-                    C 2,46 6,58 15,68
-                    C 26,80 44,88 60,94
-                    C 64,96 67,97 70,98
-                    C 73,97 76,96 80,94
-                    C 96,88 114,80 125,68
-                    C 134,58 138,46 136,34
-                    C 134,18 116,2 96,2
-                    C 80,2 72,16 70,34 Z
-                  "
-                  fill="#EDE9FF"
-                />
+                {/* Background fill */}
+                <circle cx="70" cy="70" r="65" fill="#EDE9FF" />
 
-                {/* Photo — large enough to fill heart, face centered */}
+                {/* Photo clipped to circle */}
                 <image
                   href="/photo-about.png"
-                  x="-15" y="15" width="170" height="150"
+                  x="0" y="0" width="140" height="140"
                   preserveAspectRatio="xMidYMin slice"
-                  clipPath="url(#heart-clip)"
+                  clipPath="url(#circle-clip)"
                 />
 
-                {/* Outer dashed border — sits just outside the clip */}
-                <path
-                  d="
-                    M 70,34
-                    C 68,16 60,2 44,2
-                    C 24,2 6,18 4,34
-                    C 2,46 6,58 15,68
-                    C 26,80 44,88 60,94
-                    C 64,96 67,97 70,98
-                    C 73,97 76,96 80,94
-                    C 96,88 114,80 125,68
-                    C 134,58 138,46 136,34
-                    C 134,18 116,2 96,2
-                    C 80,2 72,16 70,34 Z
-                  "
+                {/* Dashed border */}
+                <circle
+                  cx="70" cy="70" r="65"
                   fill="none"
                   stroke="#7C6FCD"
                   strokeWidth="2"
                   strokeDasharray="5,3"
                   strokeLinecap="round"
-                  strokeLinejoin="round"
                 />
 
                 {/* Outer glow ring */}
-                <path
-                  d="
-                    M 70,36
-                    C 68,17 60,0 43,0
-                    C 22,0 3,17 1,34
-                    C -1,47 4,61 14,71
-                    C 25,83 44,92 61,97
-                    C 65,99 67,100 70,100
-                    C 73,100 75,99 79,97
-                    C 96,92 115,83 126,71
-                    C 136,61 141,47 139,34
-                    C 137,17 118,0 97,0
-                    C 80,0 72,17 70,36 Z
-                  "
+                <circle
+                  cx="70" cy="70" r="68"
                   fill="none"
                   stroke="#B0A8E8"
                   strokeWidth="1"
