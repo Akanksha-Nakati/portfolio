@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# stray local photo/screenshot drops (source images kept elsewhere)
+public/WhatsApp Image*
+public/Screenshot *
+public/*.mhtml
