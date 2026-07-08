@@ -1,47 +1,67 @@
-import Image from "next/image";
+const socials = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/akanksha-nakati/" },
+  { label: "GitHub", href: "https://github.com/Akanksha-Nakati" },
+  { label: "Medium", href: "https://medium.com/@nakati.akanksha" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#7C6FCD] text-white">
-      <div className="px-8 md:px-14 pt-24 pb-16 border-b border-white/10 relative overflow-hidden">
-        <span className="absolute top-12 right-[20%] text-white/20 text-4xl select-none pointer-events-none font-bold">✦</span>
-        <span className="absolute bottom-8 left-[15%] text-white/15 text-3xl select-none pointer-events-none font-bold">✦</span>
-        <span className="absolute top-20 left-[45%] text-white/10 text-2xl select-none pointer-events-none font-bold">✦</span>
+    <footer className="relative mt-10 px-6 pb-10 md:px-10">
+      <div className="grain relative mx-auto w-full max-w-[1280px] overflow-hidden rounded-[2.5rem] border border-white/50 px-8 py-20 md:px-16 md:py-28"
+        style={{ background: "linear-gradient(135deg, #2c2233 0%, #45305e 55%, #7c5cff 130%)" }}
+      >
+        {/* peach glow */}
+        <div
+          className="pointer-events-none absolute -right-20 -top-16 h-80 w-80 rounded-full opacity-60 blur-3xl"
+          style={{ background: "radial-gradient(circle, var(--peach), transparent 70%)" }}
+        />
 
-        <div className="w-full max-w-[1400px] mx-auto flex flex-col md:flex-row items-start md:items-end justify-between gap-10">
-          <h2 className="font-[var(--font-display)] text-[clamp(44px,7vw,100px)] leading-[0.9] tracking-tight max-w-2xl">
-            Let&apos;s work<br />
-            <span className="italic text-white/60">together</span><br />
-            on something great.
-          </h2>
+        <div className="relative flex flex-col items-start gap-12">
+          <div className="flex flex-col gap-5">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-white/60">
+              Let&apos;s build something
+            </span>
+            <h2 className="font-display text-[clamp(40px,7vw,96px)] font-medium leading-[0.92] tracking-tight text-white">
+              Let&apos;s work
+              <br />
+              <span className="italic text-[var(--peach)]">together</span> on
+              <br />
+              something great.
+            </h2>
+          </div>
 
-          <div className="flex flex-col items-center gap-5 shrink-0">
-            <Image src="/photo-coffee.png" alt="Iced coffee" width={130} height={180}
-              className="object-contain drop-shadow-2xl rotate-[-8deg]" />
-            <a href="mailto:nakati.akanksha@gmail.com"
-              className="text-sm font-semibold uppercase tracking-widest px-8 py-4 bg-white text-[#7C6FCD] rounded-full hover:bg-white/90 transition-all whitespace-nowrap">
-              Get in Touch →
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="mailto:nakati.akanksha@gmail.com"
+              className="shine rounded-full bg-white px-8 py-4 text-sm font-semibold uppercase tracking-widest text-foreground transition-transform hover:-translate-y-0.5"
+            >
+              Get in touch →
+            </a>
+            <a
+              href="/ai-twin"
+              className="rounded-full border border-white/40 px-8 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all hover:bg-white/10"
+            >
+              Ask my AI Twin
             </a>
           </div>
-        </div>
-      </div>
 
-      <div className="px-8 md:px-14 py-8">
-        <div className="w-full max-w-[1400px] mx-auto flex items-center justify-between flex-wrap gap-4">
-          <span className="font-[var(--font-display)] italic text-2xl text-white/60">AN.</span>
-          <div className="flex items-center gap-8">
-            {[
-              { label: "LinkedIn", href: "https://www.linkedin.com/in/akanksha-nakati/" },
-              { label: "GitHub", href: "https://github.com/Akanksha-Nakati" },
-              { label: "Medium", href: "https://medium.com/@nakati.akanksha" },
-            ].map((l) => (
-              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
-                className="text-sm text-white/40 hover:text-white transition-colors uppercase tracking-widest">
-                {l.label}
-              </a>
-            ))}
+          <div className="mt-4 flex w-full flex-col items-start justify-between gap-6 border-t border-white/15 pt-8 sm:flex-row sm:items-center">
+            <span className="font-display text-2xl italic text-white/80">AN.</span>
+            <div className="flex flex-wrap items-center gap-7">
+              {socials.map((l) => (
+                <a
+                  key={l.label}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm uppercase tracking-widest text-white/60 transition-colors hover:text-white"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </div>
+            <p className="text-xs text-white/40">© {new Date().getFullYear()} Akanksha Nakati</p>
           </div>
-          <p className="text-xs text-white/20">© {new Date().getFullYear()} Akanksha Nakati</p>
         </div>
       </div>
     </footer>

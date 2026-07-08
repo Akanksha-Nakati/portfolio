@@ -1,53 +1,194 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ *
+ *  Design tokens — soft editorial (purple / peach)
+ * ------------------------------------------------------------------ */
 :root {
-  --background: #FFFFFF;
-  --foreground: #2D1B69;
-  --accent: #7C6FCD;
-  --accent-dark: #5A4FB0;
-  --accent-muted: #B0A8E8;
-  --lavender: #7C6FCD;
-  --lavender-light: #EDE9FF;
-  --lavender-pale: #F5F3FF;
-  --white: #FFFFFF;
-  --muted: #8880B8;
-  --border: #DDD8F5;
-  --dark-section: #2D1B69;
+  /* surfaces */
+  --background: #fbf6f2;   /* warm porcelain */
+  --surface: #ffffff;      /* cards */
+  --cream: #f6ece5;        /* subtle warm fill */
+  --accent-cream: #fbeee9; /* peachy cream (used in SVG frames) */
+  --lilac: #f1ecff;        /* pale purple wash */
+
+  /* ink */
+  --foreground: #2c2233;   /* deep aubergine ink */
+  --muted: #8a7d92;        /* mauve grey */
+  --border: #efe2e0;       /* blush hairline */
+
+  /* accents */
+  --accent: #7c5cff;       /* primary purple */
+  --accent-strong: #6444e6;/* deeper purple for text on light */
+  --primary: #7c5cff;      /* alias used by inline var() refs */
+  --peach: #f4a58a;        /* warm peach */
+  --peach-strong: #e97f5f; /* deeper peach */
+
+  /* fx */
+  --grad: linear-gradient(120deg, var(--accent) 0%, #b489ff 42%, var(--peach) 100%);
+  --card-shadow: 0 24px 60px -24px rgba(72, 44, 120, 0.28);
+  --font-display: var(--font-playfair);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ------------------------------------------------------------------ *
+ *  Tailwind v4 theme — map utilities onto the tokens above
+ *  ("inline" makes bg-accent/10, border-border/40, etc. resolve
+ *   against the CSS variables so theming stays in one place)
+ * ------------------------------------------------------------------ */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-cream: var(--cream);
+  --color-lilac: var(--lilac);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-primary: var(--primary);
+  --color-peach: var(--peach);
+  --color-peach-strong: var(--peach-strong);
+
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-inter);
 }
 
+/* ------------------------------------------------------------------ *
+ *  Base
+ * ------------------------------------------------------------------ */
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  background:
+    radial-gradient(1100px 700px at 88% -8%, rgba(124, 92, 255, 0.10), transparent 60%),
+    radial-gradient(900px 600px at 4% 8%, rgba(244, 165, 138, 0.12), transparent 55%),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .font-display {
-  font-family: var(--font-display), var(--font-playfair), serif;
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
-@keyframes marquee {
+.font-mono-d {
+  font-family: var(--font-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+.font-hand {
+  font-family: var(--font-hand), "Comic Sans MS", cursive;
+}
+
+/* legacy / oddly-named utility classes still referenced in components */
+.bg-surface { background: var(--surface); }
+.bg-cream { background: var(--cream); }
+.text-foreground { color: var(--foreground); }
+.text-muted { color: var(--muted); }
+.text-accent { color: var(--accent-strong); }
+.border-soft { border-color: var(--border); }
+.border-accent { border-color: var(--accent); }
+.shadow-board { box-shadow: var(--card-shadow); }
+
+/* ------------------------------------------------------------------ *
+ *  Effects
+ * ------------------------------------------------------------------ */
+.gradient-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* shine sweep for buttons / cards */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+  background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  transition: transform 0.7s ease;
+}
+.shine:hover::after {
+  transform: translateX(120%);
+}
+
+/* ------------------------------------------------------------------ *
+ *  Animations
+ * ------------------------------------------------------------------ */
+@keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+.animate-marquee { animation: marquee-scroll 26s linear infinite; }
+.animate-marquee:hover { animation-play-state: paused; }
 
-.animate-marquee {
-  animation: marquee 22s linear infinite;
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--r, 0deg)); }
+}
+.float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+@keyframes blob {
+  0%, 100% { border-radius: 42% 58% 63% 37% / 42% 45% 55% 58%; }
+  50% { border-radius: 58% 42% 38% 62% / 58% 55% 45% 42%; }
 }
 
-@keyframes card-slide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+.spin-slow { animation: spin-slow 28s linear infinite; }
+
+/* entrance — plain keyframes (used with a small stagger) */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise {
+  opacity: 0;
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.animate-card-slide {
-  animation: card-slide 28s linear infinite;
+/* Scroll-driven reveal — progressive enhancement via the modern
+   `animation-timeline: view()` API (no JS, no observers). Browsers
+   without support simply show the content (see @supports fallback). */
+@keyframes reveal-in {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@supports (animation-timeline: view()) {
+  .reveal {
+    opacity: 0;
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 32%;
+  }
 }
 
-.animate-card-slide:hover {
-  animation-play-state: paused;
+@media (prefers-reduced-motion: reduce) {
+  .rise, .reveal, .float-slow, .spin-slow, .animate-marquee { animation: none; opacity: 1; }
+  html { scroll-behavior: auto; }
 }

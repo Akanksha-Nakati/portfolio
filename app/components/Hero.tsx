@@ -1,99 +1,111 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Sparkle = ({ className }: { className: string }) => (
-  <span className={`absolute select-none pointer-events-none font-bold leading-none ${className}`}>✦</span>
-);
-
 export default function Hero() {
   return (
-    <section className="min-h-screen bg-[#7C6FCD] flex flex-col pt-20 overflow-hidden relative">
+    <section className="relative overflow-hidden px-6 pb-16 pt-32 md:pt-40">
+      {/* soft floating accents */}
+      <div
+        className="float-slow pointer-events-none absolute -left-10 top-40 h-56 w-56 opacity-40 blur-2xl"
+        style={{ background: "radial-gradient(circle, var(--peach), transparent 70%)" }}
+      />
+      <div
+        className="float-slow pointer-events-none absolute right-[6%] top-24 h-72 w-72 opacity-40 blur-3xl"
+        style={{ background: "radial-gradient(circle, var(--accent), transparent 70%)", animationDelay: "1.5s" }}
+      />
 
-      {/* Sparkle decorations */}
-      <Sparkle className="top-28 left-[6%] text-white/40 text-3xl" />
-      <Sparkle className="top-40 right-[8%] text-white/30 text-4xl" />
-      <Sparkle className="top-56 left-[42%] text-white/20 text-2xl" />
-      <Sparkle className="top-72 right-[30%] text-white/25 text-xl" />
-      <Sparkle className="bottom-52 left-[18%] text-white/30 text-4xl" />
-      <Sparkle className="bottom-36 right-[14%] text-white/25 text-3xl" />
-      <Sparkle className="top-96 left-[70%] text-white/15 text-5xl" />
-
-      {/* Main content */}
-      <div className="flex-1 flex flex-col items-center justify-center relative px-4">
-        <div className="relative w-full text-center select-none flex flex-col items-center gap-5">
-          <p className="text-white/50 text-xs uppercase tracking-[0.4em]">
-            Data Engineer &nbsp;·&nbsp; AI &nbsp;·&nbsp; Boston, MA
-          </p>
-          <h1 className="font-[var(--font-playfair)] italic text-[clamp(56px,10vw,160px)] leading-[0.95] text-white tracking-tight">
-            Akanksha Nakati
-          </h1>
-          <p className="font-[var(--font-display)] italic text-[clamp(16px,1.8vw,24px)] text-white/60 max-w-md leading-snug">
-            Building data systems that think,<br />not just compute.
-          </p>
-        </div>
-
-        {/* CTA buttons */}
-        <div className="flex items-center gap-4 mt-10">
-          <Link
-            href="/works"
-            className="text-sm font-semibold uppercase tracking-widest px-7 py-3 bg-white text-[#7C6FCD] rounded-full hover:bg-white/90 transition-all"
-          >
-            View Work
-          </Link>
-          <Link
-            href="/ai-twin"
-            className="text-sm font-medium uppercase tracking-widest px-7 py-3 border border-white/40 text-white rounded-full hover:bg-white/10 transition-all flex items-center gap-2"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-            AI Twin
-          </Link>
-        </div>
-      </div>
-
-      {/* Bottom social links bar */}
-      <div className="flex items-center justify-center flex-wrap gap-4 px-8 md:px-14 py-5 border-t border-white/15">
-        <div className="flex items-center gap-6 md:gap-10 flex-wrap justify-center">
-
-          <a href="https://www.linkedin.com/in/akanksha-nakati/" target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-2.5 text-white/60 hover:text-white transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-            <span className="text-xs font-medium uppercase tracking-widest hidden sm:block">LinkedIn</span>
-          </a>
-
-          <a href="mailto:nakati.akanksha@gmail.com"
-            className="flex items-center gap-2.5 text-white/60 hover:text-white transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="2" y="4" width="20" height="16" rx="2"/>
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-            </svg>
-            <span className="text-xs font-medium uppercase tracking-widest hidden sm:block">nakati.akanksha@gmail.com</span>
-          </a>
-
-          <a href="https://github.com/Akanksha-Nakati" target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-2.5 text-white/60 hover:text-white transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-            </svg>
-            <span className="text-xs font-medium uppercase tracking-widest hidden sm:block">GitHub</span>
-          </a>
-
-          <a href="https://medium.com/@nakati.akanksha" target="_blank" rel="noopener noreferrer"
-            className="flex items-center gap-2.5 text-white/60 hover:text-white transition-colors">
-            <svg width="16" height="16" viewBox="0 0 1770.86 1000" fill="currentColor">
-              <path d="M992.49 514.29c0 276.07-221.95 499.89-495.77 499.89S.95 790.36.95 514.29 222.9 14.4 496.72 14.4s495.77 223.82 495.77 499.89m543.77 0c0 259.89-110.97 470.67-247.89 470.67s-247.89-210.78-247.89-470.67 110.97-470.67 247.89-470.67 247.89 210.73 247.89 470.67m233.6 0c0 232.81-39.01 421.6-87.15 421.6s-87.15-188.74-87.15-421.6 39.01-421.6 87.15-421.6 87.15 188.74 87.15 421.6"/>
-            </svg>
-            <span className="text-xs font-medium uppercase tracking-widest hidden sm:block">Medium</span>
-          </a>
-
-          <span className="flex items-center gap-2.5 text-white/40">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            <span className="text-xs font-medium uppercase tracking-widest hidden sm:block">Boston, MA</span>
+      <div className="relative mx-auto grid w-full max-w-[1280px] items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        {/* Left — copy */}
+        <div className="flex flex-col gap-7">
+          <span className="rise inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-1.5 text-[12px] font-medium tracking-wide text-muted backdrop-blur">
+            <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_0_3px_rgba(16,185,129,0.18)]" />
+            Open to Data / AI Engineering roles
           </span>
+
+          <h1
+            className="rise font-display text-[clamp(44px,7vw,88px)] font-medium leading-[0.95] tracking-tight text-foreground"
+            style={{ animationDelay: "0.06s" }}
+          >
+            I build{" "}
+            <span className="gradient-text italic">data systems</span>
+            <br />
+            that <span className="italic">think ahead.</span>
+          </h1>
+
+          <p
+            className="rise max-w-xl text-[clamp(15px,1.5vw,18px)] leading-[1.7] text-muted"
+            style={{ animationDelay: "0.12s" }}
+          >
+            I&apos;m <span className="font-medium text-foreground">Akanksha Nakati</span> — a Data &amp; AI
+            Engineer turning raw, messy data into intelligent pipelines,
+            predictive models, and analytics that anticipate and inspire action.
+          </p>
+
+          <div className="rise flex flex-wrap items-center gap-3" style={{ animationDelay: "0.18s" }}>
+            <Link
+              href="/works"
+              className="shine rounded-full bg-foreground px-7 py-3.5 text-sm font-medium text-white transition-transform hover:-translate-y-0.5"
+            >
+              View my work →
+            </Link>
+            <Link
+              href="/ai-twin"
+              className="flex items-center gap-2 rounded-full border border-accent/30 bg-accent/[0.06] px-7 py-3.5 text-sm font-medium text-accent-strong transition-all hover:border-accent/60"
+            >
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+              Chat with my AI Twin
+            </Link>
+          </div>
+
+          <div className="rise flex flex-wrap gap-x-10 gap-y-4 pt-4" style={{ animationDelay: "0.24s" }}>
+            {[
+              { num: "2+", label: "Years experience" },
+              { num: "9+", label: "Projects shipped" },
+              { num: "2M+", label: "Records / day" },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col">
+                <span className="font-display text-[clamp(26px,3vw,40px)] leading-none text-foreground">
+                  {s.num}
+                </span>
+                <span className="mt-1 text-xs font-medium uppercase tracking-[0.14em] text-muted">
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Right — portrait in organic frame */}
+        <div className="rise relative mx-auto w-full max-w-[460px]" style={{ animationDelay: "0.1s" }}>
+          <div
+            className="spin-slow absolute -inset-6 -z-10 opacity-70 blur-2xl"
+            style={{ background: "conic-gradient(from 0deg, var(--accent), var(--peach), var(--lilac), var(--accent))", borderRadius: "42% 58% 63% 37% / 42% 45% 55% 58%" }}
+          />
+          <div
+            className="relative overflow-hidden border border-white/60 shadow-[0_40px_90px_-40px_rgba(72,44,120,0.55)]"
+            style={{ borderRadius: "42% 58% 63% 37% / 42% 45% 55% 58%", animation: "blob 12s ease-in-out infinite" }}
+          >
+            <div className="relative aspect-[4/5] w-full">
+              <Image
+                src="/grad-hero.jpg"
+                alt="Akanksha Nakati"
+                fill
+                priority
+                sizes="(max-width: 1024px) 90vw, 460px"
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* floating chips */}
+          <div className="float-slow glass absolute -left-4 top-10 rounded-2xl px-4 py-3 shadow-lg" style={{ ["--r" as string]: "-6deg" }}>
+            <p className="font-display text-lg leading-none text-foreground">Databricks</p>
+            <p className="mt-1 text-[11px] uppercase tracking-widest text-muted">Data Engineering</p>
+          </div>
+          <div className="float-slow glass absolute -right-3 bottom-12 rounded-2xl px-4 py-3 shadow-lg" style={{ ["--r" as string]: "7deg", animationDelay: "1.2s" }}>
+            <p className="font-display text-lg leading-none text-foreground">LangChain · RAG</p>
+            <p className="mt-1 text-[11px] uppercase tracking-widest text-muted">AI Systems</p>
+          </div>
         </div>
       </div>
     </section>

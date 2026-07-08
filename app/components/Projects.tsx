@@ -3,60 +3,74 @@ import { projects } from "../lib/projects";
 
 const featured = projects.slice(0, 4);
 
-const cards = [
-  { bg: "bg-[#7C6FCD]", text: "text-white", tag: "bg-white/15 text-white", num: "text-white/10", desc: "text-white/60", link: "text-white/70 group-hover:text-white" },
-  { bg: "bg-white border border-[#DDD8F5]", text: "text-[#2D1B69]", tag: "bg-[#EDE9FF] text-[#5A4FB0]", num: "text-[#7C6FCD]/10", desc: "text-[#8880B8]", link: "text-[#7C6FCD] group-hover:text-[#5A4FB0]" },
-  { bg: "bg-white border border-[#DDD8F5]", text: "text-[#2D1B69]", tag: "bg-[#EDE9FF] text-[#5A4FB0]", num: "text-[#7C6FCD]/10", desc: "text-[#8880B8]", link: "text-[#7C6FCD] group-hover:text-[#5A4FB0]" },
-  { bg: "bg-[#7C6FCD]", text: "text-white", tag: "bg-white/15 text-white", num: "text-white/10", desc: "text-white/60", link: "text-white/70 group-hover:text-white" },
+// alternating accent tints
+const tints = [
+  { glow: "rgba(124,92,255,0.16)", chip: "bg-accent/10 text-accent-strong", num: "text-accent/10" },
+  { glow: "rgba(244,165,138,0.20)", chip: "bg-peach/15 text-peach-strong", num: "text-peach/15" },
+  { glow: "rgba(244,165,138,0.20)", chip: "bg-peach/15 text-peach-strong", num: "text-peach/15" },
+  { glow: "rgba(124,92,255,0.16)", chip: "bg-accent/10 text-accent-strong", num: "text-accent/10" },
 ];
 
 export default function Projects() {
   return (
-    <section className="bg-[#F5F3FF] py-24 px-8 md:px-14">
-      <div className="w-full max-w-[1400px] mx-auto flex flex-col gap-12">
-        <div className="flex items-end justify-between">
+    <section className="relative px-6 py-24 md:px-10">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-14">
+        <div className="reveal flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-3">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#7C6FCD]">My Projects</span>
-            <h2 className="font-[var(--font-display)] text-[clamp(40px,6vw,80px)] leading-none text-[#2D1B69] tracking-tight">
-              My<br />
-              <span className="italic text-[#7C6FCD]">Projects.</span>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-accent">
+              Selected Work
+            </span>
+            <h2 className="font-display text-[clamp(40px,6vw,76px)] font-medium leading-[0.95] tracking-tight text-foreground">
+              Featured <span className="gradient-text italic">projects.</span>
             </h2>
           </div>
-          <Link href="/works"
-            className="text-sm font-semibold uppercase tracking-widest px-6 py-3 border border-[#7C6FCD] text-[#7C6FCD] rounded-full hover:bg-[#7C6FCD] hover:text-white transition-all self-end mb-2">
-            All Projects →
+          <Link
+            href="/works"
+            className="group inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-medium text-foreground transition-all hover:border-accent/40 hover:text-accent-strong"
+          >
+            All projects
+            <span className="transition-transform group-hover:translate-x-1">→</span>
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {featured.map((p, i) => {
-            const c = cards[i];
+            const t = tints[i];
             return (
-              <Link key={p.slug} href={`/works/${p.slug}`}>
-                <div className={`${c.bg} rounded-2xl p-8 flex flex-col justify-between min-h-[300px] group hover:scale-[1.015] transition-all duration-300 cursor-pointer relative overflow-hidden`}>
-                  <span className={`absolute top-4 right-6 font-[var(--font-display)] text-[120px] leading-none font-bold select-none pointer-events-none ${c.num}`}>
+              <Link key={p.slug} href={`/works/${p.slug}`} className="reveal group">
+                <div className="relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-3xl border border-border bg-surface p-8 transition-all duration-300 group-hover:-translate-y-1.5 group-hover:border-accent/30 group-hover:shadow-[0_36px_80px_-40px_rgba(72,44,120,0.45)]">
+                  {/* glow on hover */}
+                  <div
+                    className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
+                    style={{ background: `radial-gradient(circle, ${t.glow}, transparent 70%)` }}
+                  />
+                  <span className={`pointer-events-none absolute -top-5 right-3 select-none font-display text-[130px] font-bold leading-none ${t.num}`}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
-                  <div className="flex items-start justify-between relative">
-                    <span className={`text-[10px] font-semibold uppercase tracking-[0.2em] px-2.5 py-1 rounded-full ${c.tag}`}>
+                  <div className="relative flex items-start justify-between">
+                    <span className={`rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] ${t.chip}`}>
                       {p.tag}
                     </span>
                     <div className="flex items-center gap-2">
                       {p.live && (
-                        <span className="text-[9px] font-semibold text-green-600 uppercase tracking-widest bg-green-100 px-2 py-1 rounded-full">Live</span>
+                        <span className="flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-widest text-emerald-600">
+                          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+                          Live
+                        </span>
                       )}
-                      <span className={`text-xs ${c.desc}`}>{p.year}</span>
+                      <span className="text-xs text-muted">{p.year}</span>
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-3 relative mt-8">
-                    <h3 className={`font-[var(--font-display)] text-[clamp(20px,2.2vw,30px)] leading-tight ${c.text}`}>
+                  <div className="relative mt-8 flex flex-col gap-3">
+                    <h3 className="font-display text-[clamp(21px,2.2vw,30px)] font-medium leading-tight text-foreground">
                       {p.title}
                     </h3>
-                    <p className={`text-sm leading-relaxed ${c.desc}`}>{p.shortDesc}</p>
-                    <span className={`text-xs font-semibold uppercase tracking-widest group-hover:underline mt-2 ${c.link}`}>
-                      View Project →
+                    <p className="text-sm leading-relaxed text-muted">{p.shortDesc}</p>
+                    <span className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-accent-strong">
+                      View project
+                      <span className="transition-transform group-hover:translate-x-1">→</span>
                     </span>
                   </div>
                 </div>
